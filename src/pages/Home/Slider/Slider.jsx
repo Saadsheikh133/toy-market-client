@@ -31,7 +31,7 @@ const Slider = () => {
                 className="mySwiper "
             >
                 <SwiperSlide>
-                    <div className="card w-96 bg-base-100 shadow-xl image-full">
+                    <div className="card w-full bg-base-100 shadow-xl image-full">
                         <figure><img src={slider1} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl">Mini car</h2>
@@ -44,7 +44,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card w-96 bg-base-100 shadow-xl image-full">
+                    <div className="card w-full bg-base-100 shadow-xl image-full">
                         <figure><img src={slider2} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl">Track</h2>
@@ -57,7 +57,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card w-96 bg-base-100 shadow-xl image-full">
+                    <div className="card w-full bg-base-100 shadow-xl image-full">
                         <figure><img src={slider3} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl">Racing car</h2>
@@ -70,7 +70,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card w-96 bg-base-100 shadow-xl image-full">
+                    <div className="card w-full bg-base-100 shadow-xl image-full">
                         <figure><img src={slider4} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl">New red car</h2>
@@ -83,8 +83,8 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card w-96 bg-base-100 h-full shadow-xl image-full">
-                        <figure><img src={slider5} alt="Shoes" /></figure>
+                    <div className="card w-full bg-base-100 h-full shadow-xl image-full">
+                        <figure><img src={slider8} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl">Awesome mini car</h2>
                             <p>Price: $55</p>
@@ -96,7 +96,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card w-96 bg-base-100 shadow-xl image-full">
+                    <div className="card w-full bg-base-100 shadow-xl image-full">
                         <figure><img src={slider6} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl">Awesome mini car</h2>
@@ -109,7 +109,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card w-96 bg-base-100 shadow-xl image-full">
+                    <div className="card w-full bg-base-100 shadow-xl image-full">
                         <figure><img src={slider7} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl">Awesome mini car</h2>
@@ -122,7 +122,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card w-96 bg-base-100 glass shadow-xl image-full">
+                    <div className="card w-full bg-base-100 glass shadow-xl image-full">
                         <figure><img src={slider4} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl">Awesome mini car</h2>
@@ -135,7 +135,7 @@ const Slider = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="card w-96 bg-base-100 shadow-xl image-full">
+                    <div className="card w-full bg-base-100 shadow-xl image-full">
                         <figure><img src={slider8} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl">New design car</h2>
