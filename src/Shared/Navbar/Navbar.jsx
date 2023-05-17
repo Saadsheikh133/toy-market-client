@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ActiveLink from '../ActiveLink/ActiveLink';
+import logo from '../../assets/images/logo.jpg';
 
 const Navbar = () => {
     const user = { displayName: 'saad' }
@@ -24,6 +25,7 @@ const Navbar = () => {
                         <li><ActiveLink to='/'>My Toys</ActiveLink></li>
                     </ul>
                 </div>
+                <img className='rounded-full w-1/6 mr-3' src={logo} alt="" />
                 <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-400 inline-block text-transparent bg-clip-text">Toy Collections</h1>
             </div>
             <div className="navbar-center hidden lg:flex">
