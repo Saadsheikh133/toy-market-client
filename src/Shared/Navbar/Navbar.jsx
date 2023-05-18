@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ActiveLink from '../ActiveLink/ActiveLink';
 import logo from '../../assets/images/logo.jpg';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
-    const user = { displayName: 'saad' }
+    const { user, logOut } = useContext(AuthContext)
     
     const handleLogOut = () => {
-        console.log("first")
+        logOut()
+            .then(result => {
+            console.log(result?.user)
+            })
+        .catch(error => console.log(error))
     }
    
     return (
