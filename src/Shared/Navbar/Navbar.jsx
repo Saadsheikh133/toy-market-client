@@ -6,15 +6,13 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-    
+
     const handleLogOut = () => {
         logOut()
-            .then(result => {
-            console.log(result?.user)
-            })
-        .catch(error => console.log(error))
+            .then()
+            .catch()
     }
-   
+
     return (
         <nav className="navbar bg-base-300 mx-auto container mb-10 py-5 rounded-lg">
             <div className="navbar-start">
@@ -28,6 +26,7 @@ const Navbar = () => {
                             <ActiveLink to='/allToys'>All Toys </ActiveLink>
                         </li>
                         <li><ActiveLink to='/'>My Toys</ActiveLink></li>
+                        <li><ActiveLink to='/blog'>Blog</ActiveLink></li>
                     </ul>
                 </div>
                 <img className='rounded-full w-1/6 mr-3' src={logo} alt="" />
@@ -39,7 +38,8 @@ const Navbar = () => {
                     <li tabIndex={0}>
                         <ActiveLink className='ml-4 mr-4' to='/allToys'> All Toys </ActiveLink>
                     </li>
-                    <li><ActiveLink to='/'>My Toys</ActiveLink></li>
+                    <li><ActiveLink to='/'>My Toys</ActiveLink></li> 
+                    <li><ActiveLink to='/blog'>Blog</ActiveLink></li> 
                 </ul>
             </div>
             <div className="navbar-end">
