@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -28,10 +29,10 @@ const Login = () => {
         <div>
             <div className="hero min-h-screen bg-base-200 rounded-xl my-8">
                 <div className="hero-content flex-col">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
+                    <div className="text-center">
+                        <h1 className="text-5xl font-bold mb-10">Login now!</h1>
                     </div>
-                    <form onSubmit={handleLoginUser} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <form onSubmit={handleLoginUser} className="card flex-shrink-0 w-full  shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -47,6 +48,9 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6 mb-6">
                                 <input className='btn btn-primary' type="submit" value="Login" />
+                            </div>
+                            <div>
+                                <button className='btn w-full bg-slate-400'><FcGoogle size={30}></FcGoogle></button>
                             </div>
                             <p>New to this site? <Link to = "/register">Please Register</Link> </p>
                         <p>{error}</p>
