@@ -4,7 +4,7 @@ const Blog = () => {
     return (
         <div className='text-xl my-10'>
             <h3 className='text-3xl font-bold my-5'>Question-1:What is an access token and refresh token? How do they work and where should we store them on the client-side?</h3>
-            <p> <span className='font-bold'>Answer: Access token:</span> An access token is an object encapsulating the security identity of a process or thread.[2] A token is used to make security decisions and to store tamper-proof information about some system entity.</p>
+            <p> <span className='font-bold'>Answer: Access token:</span> An access token is an object encapsulating the security identity of a process or thread. A token is used to make security decisions and to store tamper-proof information about some system entity.</p>
             <p className='my-5'> <span className='font-bold'>Refresh token:</span>Access tokens may be valid for a short amount of time. Once they expire, client applications can use a refresh token to (refresh) the access token.</p>
             <p className='my-5'> <span className='font-bold'>Access token and Refresh token work:</span>When the user logging in to an API service. This could be done by sending an HTTP request with a username and password. Then, on successful authentication, the API returns an access token.When the access token will expire.Then user using refresh token to re-generate access token.Then user use private information again.</p>
             <p>We usually 2 ways to stored them on client site.i. local storage.But this system do not properly secure. <br /> ii. http only cookie</p>
