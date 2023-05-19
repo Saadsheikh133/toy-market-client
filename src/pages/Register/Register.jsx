@@ -1,11 +1,23 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, googleLogin } = useContext(AuthContext);
     const navigate = useNavigate()
+
+    const handleGoogleLogin = () => {
+        setError('');
+        googleLogin()
+            .then(result => {
+            console.log(result.user)
+            })
+            .catch(error => {
+                setError(error.message)
+        })
+    }
 
     const handleRegister = event => {
         event.preventDefault();
@@ -31,12 +43,12 @@ const Register = () => {
     }
     return (
         <div className='my-10 rounded-xl'>
-            <div className="hero min-h-screen bg-base-200 rounded-xl">
-                <div className="hero-content flex-col">
+            <div className="hero min-h-screen bg-base-200 rounded-xl py-5">
+                <div className="hero-content flex-col py-5">
                     <div className="text-center">
-                        <h1 className="text-5xl font-bold mb-6">Please Register!</h1>
+                        <h1 className="text-5xl font-bold my-10">Please Register!</h1>
                     </div>
-                    <form onSubmit={handleRegister} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <form onSubmit={handleRegister} className="card flex-shrink-0 shadow-2xl bg-base-100">
                         <div className="card-body">
                             <div className="form-control w-full">
                                 <label className="label">
@@ -65,9 +77,12 @@ const Register = () => {
                             <div className="form-control mt-6 mb-6">
                                 <input className='btn btn-primary' type="submit" value="Register" />
                             </div>
-                        <p>All ready have an account? <Link to = "/login">Please Login</Link> </p>
+                            <div>
+                                <button onClick={handleGoogleLogin} className='btn w-full bg-slate-400'><FcGoogle size={30}></FcGoogle></button>
+                            </div>
+                        <p className='text-xl text-center py-4'>All ready have an account? <Link className='text-primary hover:underline' to = "/login">Please Login</Link> </p>
                         </div>
-                        <p className='text-red-500'>{error}</p>
+                        <p className='text-red-500 py-4'>{error}</p>
                     </form>
                 </div>
             </div>

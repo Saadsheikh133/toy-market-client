@@ -11,6 +11,18 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
+    const handleGoogleLogin = () => {
+        setError('');
+        googleLogin()
+            .then(result => {
+                console.log(result.user)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+            setError(error.message)
+        })
+    }
+
     const handleLoginUser = event => {
         event.preventDefault();
         setError('');
@@ -31,8 +43,8 @@ const Login = () => {
     }
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200 rounded-xl my-8">
-                <div className="hero-content flex-col">
+            <div className="hero min-h-screen bg-base-200 rounded-xl my-8 lg:w-full">
+                <div className="hero-content flex-col  lg:w-1/3">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold mb-10">Login now!</h1>
                     </div>
@@ -54,10 +66,10 @@ const Login = () => {
                                 <input className='btn btn-primary' type="submit" value="Login" />
                             </div>
                             <div>
-                                <button className='btn w-full bg-slate-400'><FcGoogle size={30}></FcGoogle></button>
+                                <button onClick={handleGoogleLogin} className='btn w-full bg-slate-400'><FcGoogle size={30}></FcGoogle></button>
                             </div>
-                            <p>New to this site? <Link to = "/register">Please Register</Link> </p>
-                        <p>{error}</p>
+                            <p className='py-5 text-center text-xl'>New to this site? <Link className='hover:underline text-primary' to = "/register">Please Register</Link> </p>
+                        <p className='text-red-600 py-4'>{error}</p>
                         </div>
                     </form>
                 </div>

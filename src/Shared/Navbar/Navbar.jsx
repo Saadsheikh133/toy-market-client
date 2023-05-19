@@ -25,7 +25,7 @@ const Navbar = () => {
                         <li tabIndex={0}>
                             <ActiveLink to='/allToys'>All Toys </ActiveLink>
                         </li>
-                        <li><ActiveLink to='/'>My Toys</ActiveLink></li>
+                        <li><ActiveLink to='/myToys'>My Toys</ActiveLink></li>
                         <li><ActiveLink to='/addToy'>Add A Toy</ActiveLink></li>
                         <li><ActiveLink to='/blog'>Blog</ActiveLink></li>
                     </ul>
@@ -39,7 +39,7 @@ const Navbar = () => {
                     <li tabIndex={0}>
                         <ActiveLink className='ml-4 mr-4' to='/allToys'> All Toys </ActiveLink>
                     </li>
-                    <li><ActiveLink to='/'>My Toys</ActiveLink></li>
+                    <li><ActiveLink to='/myToys'>My Toys</ActiveLink></li>
                     <li><ActiveLink to='/addToy'>Add A Toy</ActiveLink></li>
                     <li><ActiveLink to='/blog'>Blog</ActiveLink></li> 
                 </ul>
