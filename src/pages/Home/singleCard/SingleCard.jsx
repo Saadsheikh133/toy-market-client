@@ -24,7 +24,7 @@ const SingleCard = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200 my-10">
+            <div className="hero min-h-screen bg-base-200 my-10 rounded-xl">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img src={img} className="lg:max-w-lg rounded-lg shadow-2xl" />
                     <div>

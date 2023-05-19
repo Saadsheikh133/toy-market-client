@@ -98,8 +98,12 @@ const AddToy = () => {
                                     <input type="text" name='ratting' placeholder="ratting" className="input input-bordered" required />
                                 </div>
                             </div>
-                            <select name="category" id="">
-                                <option value="car toy">car toy</option>
+                            <select className="input input-bordered" name="category" id="">
+                                <option value="">Choose a car</option>
+                                <option value="Regular car">Regular car</option>
+                                <option value="Track">Track</option>
+                                <option value="Sports car">Sports car</option>
+                                <option value="Mini police car">Mini police car</option>
                             </select>
                             <div className="form-control">
                                 <label className="label">
