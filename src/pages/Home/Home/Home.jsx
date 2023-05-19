@@ -3,6 +3,7 @@ import Banner from '../Bannar/Banner';
 import Slider from '../Slider/Slider';
 import Gallery from '../Gallery/Gallery';
 import TabCategory from '../TabCategory/TabCategory';
+import SingleCard from '../singleCard/SingleCard';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Gallery></Gallery>
             <TabCategory></TabCategory>
             <Slider></Slider>
+            <SingleCard></SingleCard>
         </div>
     );
 };

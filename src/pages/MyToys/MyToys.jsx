@@ -6,6 +6,15 @@ import Swal from 'sweetalert2'
 const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
     const { user } = useContext(AuthContext)
+
+    // if (data.modifiedCount > 0) {
+    //     const remaining = bookings.filter(booking => booking._id !== id)
+    //     const updated = bookings.find(booking => booking._id === id)
+    //     updated.status = "confirm"
+    //     const newBookings = [updated, ...remaining]
+    //     setBookings(newBookings)
+
+    // }
     
 
     const handleDelete = (_id) => {
@@ -37,6 +46,28 @@ const MyToys = () => {
         })
     }
 
+    const handleUpdateToy = event => {
+        fetch(`http://localhost:5000/addToys/${myToys._id}`, {
+            method: 'PUT',
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(event)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'Coffee updated successfully',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        confirmButtonText: 'Cool'
+                    })
+                }
+        })
+    }
+
 
     const url = `http://localhost:5000/addToys?email=${user.email}`
     useEffect(() => {
@@ -65,11 +96,13 @@ const MyToys = () => {
                     </tr>
                 </thead>
                 <tbody>
-                        {
+                    {
+                        Array.isArray(myToys) &&
                             myToys.map(toy => <MyToysCard
                                 key={toy._id}
                                 toy={toy}
                                 handleDelete={handleDelete}
+                                handleUpdateToy={handleUpdateToy}
                             ></MyToysCard>)
                         }
                  

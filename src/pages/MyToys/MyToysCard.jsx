@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
 import { HiXCircle } from "react-icons/hi";
 
-const MyToysCard = ({ toy, handleDelete }) => {
+const MyToysCard = ({ toy, handleDelete, handleUpdateToy }) => {
     const { _id, url, toyName, price, quantity, ratting, email } = toy;
 
-   
+    const handleUpdate = event => {
+        event.preventDefault();
+        const form = event.target;
+        const price = form.price.value;
+        const quantity = form.quantity.value;
+        const details = form.details.value;
+        const toyInfo = {
+            price,
+            quantity,
+            details
+        }
+        console.log(toyInfo)
+        handleUpdateToy(toyInfo)
+    }
+
+
     return (
         < tr >
             <th>
@@ -29,15 +43,41 @@ const MyToysCard = ({ toy, handleDelete }) => {
             <td>{quantity}</td>
             <td>{ratting}</td>
             <th>
+                {/* The button to open modal */}
                 <label htmlFor="my-modal-5" className="btn btn-primary">Update</label>
+
                 {/* Put this part before </body> tag */}
                 <input type="checkbox" id="my-modal-5" className="modal-toggle" />
-                <div className="modal">
-                    <div className="modal-box w-11/12 max-w-5xl">
-                        <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-                        <p className="py-4">You have been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                <div className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box">
+                        <form onSubmit={ handleUpdate} className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+                            <h2 className='text-3xl text-center'>Update Toy:</h2>
+                            <div className="card-body">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Price</span>
+                                    </label>
+                                    <input type="number" placeholder="price" name='price' className="input input-bordered" />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Available Quantity</span>
+                                    </label>
+                                    <input type="text" placeholder="Quantity" name='quantity' className="input input-bordered" />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Details</span>
+                                    </label>
+                                    <input type="text" placeholder="description" name='details' className="input input-bordered" />
+                                </div>
+                                <div className="form-control mt-6">
+                                    <input className='btn btn-primary' type="submit" value="Update Toy" />
+                                </div>
+                            </div>
+                        </form>
                         <div className="modal-action">
-                            <label htmlFor="my-modal-5" className="btn">Yay!</label>
+                            <label htmlFor="my-modal-5" className="btn">X</label>
                         </div>
                     </div>
                 </div>

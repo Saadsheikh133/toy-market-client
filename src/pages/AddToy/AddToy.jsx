@@ -16,8 +16,9 @@ const AddToy = () => {
         const price = form.price.value;
         const ratting = form.ratting.value;
         const details = form.details.value;
+        const category = form.category.value;
         const formInfo = {
-            url,toyName, sellerName, email, quantity, price, ratting, details
+            url, toyName, sellerName, email, quantity, price, ratting, details, category
         }
         console.log(formInfo)
 
@@ -94,9 +95,12 @@ const AddToy = () => {
                                     <label className="label">
                                         <span className="label-text">Ratting</span>
                                     </label>
-                                    <input type="number" name='ratting' placeholder="ratting" className="input input-bordered" required />
+                                    <input type="text" name='ratting' placeholder="ratting" className="input input-bordered" required />
                                 </div>
                             </div>
+                            <select name="category" id="">
+                                <option value="car toy">car toy</option>
+                            </select>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Description</span>
