@@ -36,7 +36,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img className='rounded-full w-1/6 mr-3' src={logo} alt="" />
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-400 inline-block text-transparent bg-clip-text">Toy Collections</h1>
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-cyan-500 to-purple-400 inline-block text-transparent bg-clip-text">Toy Collections</h1>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-xl gap-4">
@@ -61,10 +61,10 @@ const Navbar = () => {
                             <div className='tooltip tooltip-bottom' data-tip={user?.displayName}>
                                 <img className='rounded-full h-16' src={user?.photoURL} alt="" />
                             </div>
-                            <a onClick={handleLogOut} className="ml-4 btn btn-warning bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white">Log Out</a>
+                            <a onClick={handleLogOut} className="ml-4 btn btn-warning bg-gradient-to-r from-blue-400 to-purple-500 hover:from-pink-500 hover:to-sky-500 text-white">Log Out</a>
                         </> :
 
-                        <Link to='/login' className="btn btn-warning bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white">Login</Link>
+                        <Link to='/login' className="btn btn-warning bg-gradient-to-r from-blue-400 to-purple-500 hover:from-pink-500 hover:to-sky-500 text-white">Login</Link>
 
                 }
             </div>

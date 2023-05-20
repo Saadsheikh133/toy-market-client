@@ -46,7 +46,7 @@ const MyToysCard = ({ toy, handleDelete, handleUpdateToy }) => {
             <td>{ratting}</td>
             <th>
                 {/* The button to open modal */}
-                <label htmlFor="my-modal-5" className="btn btn-primary">Update</label>
+                <label htmlFor="my-modal-5" className="btn bg-gradient-to-r from-green-400 to-purple-500 hover:from-pink-500 hover:to-sky-500 text-white">Update</label>
 
                 {/* Put this part before </body> tag */}
                 <input type="checkbox" id="my-modal-5" className="modal-toggle" />
@@ -74,7 +74,7 @@ const MyToysCard = ({ toy, handleDelete, handleUpdateToy }) => {
                                     <input type="text" placeholder="description" name='details' className="input input-bordered" />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input className='btn btn-primary' type="submit" value="Update Toy" />
+                                    <input className='btn bg-gradient-to-r from-green-400 to-purple-500 hover:from-pink-500 hover:to-sky-500 text-white' type="submit" value="Update Toy" />
                                 </div>
                             </div>
                         </form>

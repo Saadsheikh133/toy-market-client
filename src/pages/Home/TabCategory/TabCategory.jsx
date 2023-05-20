@@ -10,7 +10,7 @@ const TabCategory = () => {
     useTitle('Home')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?category=${category}`)
+        fetch(`http://localhost:5000/toys?sub_category=${category}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)
@@ -27,6 +27,7 @@ const TabCategory = () => {
             </Tabs>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 mx-auto w-full'>
                 {
+                    Array.isArray(toys) &&
                     toys.map(toy => <SingleCategory
                         key={toy._id}
                         toy={toy}

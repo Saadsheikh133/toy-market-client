@@ -22,7 +22,6 @@ const AddToy = () => {
         const formInfo = {
             url, toyName, sellerName, email, quantity, price, ratting, details, sub_category
         }
-        console.log(formInfo)
 
         fetch('http://localhost:5000/createToys', {
             method: 'POST',
@@ -33,14 +32,15 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'success',
-                    title: 'Toy has been created successfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Toy has been created successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+               }
         })
     }
     return (
@@ -104,7 +104,7 @@ const AddToy = () => {
                                     <span className="label-text">Select sub_category</span>
                                 </label>
                                 <select className="input input-bordered" name="sub_category" id="">
-                                    <option selected>Choose sub_category</option>
+                                    <option value="">Choose sub_category</option>
                                     <option value="Regular car">Regular car</option>
                                     <option value="Track">Track</option>
                                     <option value="Sports car">Sports car</option>

@@ -51,6 +51,7 @@ const AllToys = () => {
                     </thead>
                     <tbody>
                         {
+                            Array.isArray(allToys) &&
                             allToys.map((toy, i) => <AllToysCard
                                 key={toy._id}
                                 toy={toy}
