@@ -1,7 +1,9 @@
 import React from 'react';
+import useTitle from '../../hooks/useTitle';
 
 const AllToysCard = ({ toy }) => {
     const { sellerName, toyName, sub_category, price, quantity } = toy;
+    useTitle('All toys')
    
     return (
         < tr >

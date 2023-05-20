@@ -3,11 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import Swal from 'sweetalert2'
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
     const [error, setError] = useState('');
     const { createUser, updateUser, googleLogin } = useContext(AuthContext);
     const navigate = useNavigate()
+    useTitle('Register')
 
     const handleGoogleLogin = () => {
         setError('');

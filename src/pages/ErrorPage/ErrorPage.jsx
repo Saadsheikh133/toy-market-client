@@ -1,10 +1,12 @@
 import React from 'react';
 import { useRouteError } from 'react-router-dom';
 import img from '../../assets/images/error.jpg';
+import useTitle from '../../hooks/useTitle';
 
 
 const ErrorPage = () => {
     const error = useRouteError();
+    useTitle('Error')
     return (
         <div className='lg:flex max-w-full items-center justify-between'>
             <div className='mx-auto mt-4'>

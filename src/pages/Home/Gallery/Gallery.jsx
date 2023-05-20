@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../../hooks/useTitle';
 
 const Gallery = () => {
+    useTitle('Home')
     return (
         <div className='my-10'>
 

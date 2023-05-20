@@ -1,8 +1,10 @@
 import React from 'react';
 import logo from '../../assets/images/logo.jpg'
 import { ImFacebook, ImTwitter } from "react-icons/im";
+import useTitle from '../../hooks/useTitle';
 
 const Footer = () => {
+    useTitle('Footer')
     return (
         <footer className=''>
             <div className="footer p-10 bg-neutral text-neutral-content rounded-t-xl text-xl pt-10">

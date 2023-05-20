@@ -12,10 +12,12 @@ import slider6 from '../../../assets/images/slider-6.jpg'
 import slider7 from '../../../assets/images/slider-7.jpg'
 import slider8 from '../../../assets/images/slider-10.jpg'
 import toast, { Toaster } from 'react-hot-toast';
+import useTitle from '../../../hooks/useTitle';
 
 const notify = () => toast('Thanks for buy this item');
 
 const Slider = () => {
+    useTitle('Home')
     return (
         <div className='my-20'>
             <Toaster />

@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import MyToysCard from './MyToysCard';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2'
+import useTitle from '../../hooks/useTitle';
 
 const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
     const { user } = useContext(AuthContext)
+    useTitle('My Toys')
 
     // if (data.modifiedCount > 0) {
     //     const remaining = bookings.filter(booking => booking._id !== id)

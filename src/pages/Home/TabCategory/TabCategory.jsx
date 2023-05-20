@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabList } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import SingleCategory from './SingleCategory';
+import useTitle from '../../../hooks/useTitle';
 
 const TabCategory = () => {
     const [toys, setToys] = useState([]);
     const [category, setCategory] = useState('Sports Cars');
+    useTitle('Home')
 
     useEffect(() => {
         fetch(`http://localhost:5000/toys?category=${category}`)
@@ -23,7 +25,7 @@ const TabCategory = () => {
                     <Tab onClick={() => setCategory('Off-Road Trucks')}>Off-Road Trucks</Tab>
                 </TabList>
             </Tabs>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10 mx-auto w-full'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 mx-auto w-full'>
                 {
                     toys.map(toy => <SingleCategory
                         key={toy._id}

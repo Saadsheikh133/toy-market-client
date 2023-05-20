@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
 import { ColorRing } from 'react-loader-spinner';
+import useTitle from '../../hooks/useTitle';
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
+    useTitle('Private Route')
 
     if (loading) {
         return <ColorRing

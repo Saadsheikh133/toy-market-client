@@ -1,7 +1,9 @@
 import React from 'react';
 import img from '../../../assets/images/img.jpg'
+import useTitle from '../../../hooks/useTitle';
 
 const Banner = () => {
+    useTitle('Home')
     return (
         <div className='mt-10 relative'>
             <img className='w-full h-[700px] rounded-xl' src={img} alt="" />
