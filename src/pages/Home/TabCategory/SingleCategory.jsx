@@ -4,7 +4,7 @@ import useTitle from '../../../hooks/useTitle';
 
 const SingleCategory = ({ toy }) => {
     const { img, price, quantity, rating, toyName } = toy;
-    useTitle('SingleCategory')
+    useTitle('Home')
     return (
         <div className='my-10'>
             <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full w-full mx-auto pb-10">
@@ -23,7 +23,6 @@ const SingleCategory = ({ toy }) => {
                             value={rating}
                             readOnly
                         />
-                        {/* <Rating readOnly value={2.42} /> */}
                     </div>
                     <p className="mb-5 font-normal text-gray-700 dark:text-gray-200">Quantity: { quantity }</p>
                    

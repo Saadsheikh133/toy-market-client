@@ -24,7 +24,7 @@ const AddToy = () => {
         }
         console.log(formInfo)
 
-        fetch('http://localhost:5000/addToys', {
+        fetch('http://localhost:5000/createToys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -100,12 +100,16 @@ const AddToy = () => {
                                     <input type="text" name='ratting' placeholder="ratting" className="input input-bordered" required />
                                 </div>
                             </div>
-                            <select className="input input-bordered" name="sub_category" id="">
-                                <option value="Regular car">Regular car</option>
-                                <option value="Track">Track</option>
-                                <option value="Sports car">Sports car</option>
-                                <option value="Mini police car">Mini police car</option>
-                            </select>
+                                <label className="label">
+                                    <span className="label-text">Select sub_category</span>
+                                </label>
+                                <select className="input input-bordered" name="sub_category" id="">
+                                    <option selected>Choose sub_category</option>
+                                    <option value="Regular car">Regular car</option>
+                                    <option value="Track">Track</option>
+                                    <option value="Sports car">Sports car</option>
+                                    <option value="Mini police car">Mini police car</option>
+                                </select>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Description</span>

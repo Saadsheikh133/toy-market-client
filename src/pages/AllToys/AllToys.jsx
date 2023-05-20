@@ -4,27 +4,37 @@ import useTitle from '../../hooks/useTitle';
 
 const AllToys = () => {
     const [allToys, setAllToys] = useState([]);
-    const [toys, setToys] = useState([]);
+    const [searchText, setSearchText] = useState('');
     useTitle('All toys')
 
+
+    const handleSearch = () => {
+        fetch(`http://localhost:5000/searchByToyName/${searchText}`)
+            .then(res => res.json())
+            .then(data => {
+                setAllToys(data)
+        })
+    }
+
+
     useEffect(() => {
-        fetch('http://localhost:5000/addToys')
+        fetch('http://localhost:5000/allToys')
             .then(res => res.json())
             .then(data => {
             setAllToys(data)
         })
     }, [])
 
-    useEffect(() => {
-        fetch('http://localhost:5000/toys')
-            .then(res => res.json())
-            .then(data => {
-            setToys(data)
-        })
-    }, [])
-
     return (
         <div>
+            <div className='lg:flex justify-center my-8'>
+                <div className="form-control">
+                    <div className="">
+                        <input onChange={(e) => setSearchText(e.target.value)} type="text" name='text' placeholder="Search…" className="input input-bordered" />
+                        <button onClick={handleSearch} className='btn bg-accent hover:bg-sky-500 ml-4'>Search</button>
+                    </div>
+                </div>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}
@@ -41,15 +51,10 @@ const AllToys = () => {
                     </thead>
                     <tbody>
                         {
-                            allToys.map(toy => <AllToysCard
-                                key={toy._id}
-                                toy= {toy}
-                            ></AllToysCard>)
-                        }
-                        {
-                            toys.map(toy => <AllToysCard
+                            allToys.map((toy, i) => <AllToysCard
                                 key={toy._id}
                                 toy={toy}
+                                i={i}
                             ></AllToysCard>)
                         }
                     </tbody>
