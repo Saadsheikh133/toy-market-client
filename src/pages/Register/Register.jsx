@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
+import Swal from 'sweetalert2'
 
 const Register = () => {
     const [error, setError] = useState('');
@@ -12,7 +13,14 @@ const Register = () => {
         setError('');
         googleLogin()
             .then(result => {
-            console.log(result.user)
+                console.log(result.user)
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             })
             .catch(error => {
                 setError(error.message)
@@ -27,13 +35,41 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
+
+        if (!/(?=.*[A-Z])/.test(password)) {
+            return Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+
+        else if (!/(?=.*?[#?!@$%^&*-])/.test(password)) {
+            return Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+
         createUser(email, password)
             .then(result => {
                 const newUser = result.user;
                 console.log(newUser)
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 updateUser(name, photo)
                     .then()
-                    .catch(error => console.log(error.message))
+                    .catch(error => setError(error.message))
                 navigate('/login', { replace: true })
                 form.reset();
             })

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -16,6 +17,13 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 console.log(result.user)
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -33,6 +41,13 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 navigate(from, { replace: true })
                 form.reset();
             })
