@@ -7,19 +7,12 @@ import useTitle from '../../hooks/useTitle';
 const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
     const [updateInfo, setUpdateInfo] = useState({})
+    const [activeTab, setActiveTab] = useState('ascending')
+    const [category, setCategory] = useState([])
     const { user } = useContext(AuthContext)
     useTitle('My Toys')
-    console.log(updateInfo)
 
-    // if (data.modifiedCount > 0) {
-    //     const remaining = bookings.filter(booking => booking._id !== id)
-    //     const updated = bookings.find(booking => booking._id === id)
-    //     updated.status = "confirm"
-    //     const newBookings = [updated, ...remaining]
-    //     setBookings(newBookings)
 
-    // }
-    
 
     const handleDelete = (_id) => {
         Swal.fire({
@@ -32,12 +25,11 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addToys/${_id}`, {
+                fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/addToys/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',
@@ -51,36 +43,61 @@ const MyToys = () => {
     }
 
     const handleUpdateToy = id => {
-        fetch(`http://localhost:5000/addToys/${id}`, {
+        fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/addToys/${id}`, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(updateInfo)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'success!',
-                        text: 'Coffee updated successfully',
+                        text: 'Toy updated successfully',
                         icon: 'success',
                         showConfirmButton: false,
                         timer: 1500,
                         confirmButtonText: 'Cool'
                     })
+                    const remaining = myToys.filter(myToy => myToy._id !== id)
+                    const updated = myToys.find(myToy => myToy._id === id)
+                    console.log(remaining, updated)
+
+                    const newToys = [updated, ...remaining]
+                    setMyToys(newToys)
+                    // if (data.modifiedCount > 0) {
+                    //     const remaining = bookings.filter(booking => booking._id !== id)
+                    //     const updated = bookings.find(booking => booking._id === id)
+                    //     updated.status = "confirm"
+                    //     const newBookings = [updated, ...remaining]
+                    //     setBookings(newBookings)
+
+                    // }
                 }
-        })
+            })
     }
 
+    const handleSorting = tabName => {
+        setActiveTab(tabName)
+    }
 
-    const url = `http://localhost:5000/allToys?email=${user?.email}`
+    useEffect(() => {
+        fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/allToys/${category}`)
+            .then(res => res.json())
+            .then(data => {
+            setCategory(data)
+        })
+    }, [category])
+
+
+    const url = `https://b7a11-toy-marketplace-server-side-nine.vercel.app/allToys?email=${user?.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-            setMyToys(data)
-        })
-    },[url])
+                setMyToys(data)
+            })
+    }, [url])
     return (
         <div className="overflow-x-auto w-full">
             <table className="table w-full">
@@ -102,17 +119,23 @@ const MyToys = () => {
                 <tbody>
                     {
                         Array.isArray(myToys) &&
-                            myToys.map(toy => <MyToysCard
-                                key={toy._id}
-                                toy={toy}
-                                handleDelete={handleDelete}
-                                handleUpdateToy={handleUpdateToy}
-                                setUpdateInfo={setUpdateInfo}
-                            ></MyToysCard>)
-                        }
-                 
+                        myToys?.map(toy => <MyToysCard
+                            key={toy._id}
+                            toy={toy}
+                            handleDelete={handleDelete}
+                            handleUpdateToy={handleUpdateToy}
+                            setUpdateInfo={setUpdateInfo}
+                        ></MyToysCard>)
+                    }
+
                 </tbody>
             </table>
+            <div className='flex justify-center my-10'>
+                <div className="tabs tabs-boxed">
+                    <a onClick={() => handleSorting('ascending')} className={`tab ${activeTab == 'ascending' ? 'tab-active': ''}`}>ascending</a>
+                    <a onClick={() => handleSorting('descending')} className={`tab ${activeTab == 'descending' ? 'tab-active' : ''}`}>Descending</a>
+                </div>
+            </div>
         </div>
     );
 };

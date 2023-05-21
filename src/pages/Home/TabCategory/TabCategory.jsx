@@ -9,13 +9,16 @@ const TabCategory = () => {
     const [category, setCategory] = useState('Sports Cars');
     useTitle('Home')
 
+
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?sub_category=${category}`)
+        fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/toys?sub_category=${category}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)
             })
+       
     }, [category])
+
     return (
         <>
             <Tabs className='text-center'>
@@ -28,7 +31,7 @@ const TabCategory = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 mx-auto w-full'>
                 {
                     Array.isArray(toys) &&
-                    toys.map(toy => <SingleCategory
+                    toys?.map(toy => <SingleCategory
                         key={toy._id}
                         toy={toy}
                     ></SingleCategory>)

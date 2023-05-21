@@ -2,7 +2,7 @@ import { HiXCircle } from "react-icons/hi";
 import useTitle from "../../hooks/useTitle";
 
 const MyToysCard = ({ toy, handleDelete, handleUpdateToy, setUpdateInfo }) => {
-    const { _id, url, toyName, price, quantity, ratting, email } = toy;
+    const { _id, img, toyName, price, quantity, rating, sellerEmail } = toy;
     useTitle('My Toys')
 
     const handleClick = (info) => {
@@ -38,7 +38,7 @@ const MyToysCard = ({ toy, handleDelete, handleUpdateToy, setUpdateInfo }) => {
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-20 h-20">
-                            <img src={url} />
+                            <img src={img} />
                         </div>
                     </div>
                 </div>
@@ -46,10 +46,10 @@ const MyToysCard = ({ toy, handleDelete, handleUpdateToy, setUpdateInfo }) => {
             <td>
                 {toyName}
             </td>
-            <td>{email}</td>
+            <td>{sellerEmail}</td>
             <td>${price}</td>
             <td>{quantity}</td>
-            <td>{ratting}</td>
+            <td>{rating}</td>
             <th>
                 {/* The button to open modal */}
                 <label htmlFor="my-modal-5" className="btn bg-gradient-to-r from-green-400 to-purple-500 hover:from-pink-500 hover:to-sky-500 text-white">Update</label>

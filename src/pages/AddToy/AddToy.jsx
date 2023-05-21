@@ -10,20 +10,20 @@ const AddToy = () => {
     const handleAddToy = event => {
         event.preventDefault();
         const form = event.target;
-        const url = form.url.value;
+        const img = form.img.value;
         const toyName = form.toyName.value;
         const sellerName = form.sellerName.value;
-        const email = form.email.value;
+        const sellerEmail = form.sellerEmail.value;
         const quantity = form.quantity.value;
         const price = form.price.value;
-        const ratting = form.ratting.value;
-        const details = form.details.value;
+        const rating = form.rating.value;
+        const description = form.description.value;
         const sub_category = form.sub_category.value;
         const formInfo = {
-            url, toyName, sellerName, email, quantity, price, ratting, details, sub_category
+            img, toyName, sellerName, sellerEmail, quantity, price, rating, description, sub_category
         }
 
-        fetch('http://localhost:5000/createToys', {
+        fetch('https://b7a11-toy-marketplace-server-side-nine.vercel.app/createToys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -40,8 +40,8 @@ const AddToy = () => {
                         showConfirmButton: false,
                         timer: 1500
                     })
-               }
-        })
+                }
+            })
     }
     return (
         <div>
@@ -56,7 +56,7 @@ const AddToy = () => {
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="url" name='url' placeholder="photo url" className="input input-bordered" required/>
+                                <input type="url" name='img' placeholder="photo url" className="input input-bordered" required />
                             </div>
                             <div className='lg:flex lg:gap-4 lg:max-w-full'>
                                 <div className="form-control lg:w-1/2">
@@ -71,13 +71,13 @@ const AddToy = () => {
                                     </label>
                                     <input type="text" name='sellerName' defaultValue={user?.displayName} placeholder="seller name" className="input input-bordered" required />
                                 </div>
-                           </div>
+                            </div>
                             <div className='lg:flex gap-4 max-w-full'>
                                 <div className="form-control lg:w-1/2">
                                     <label className="label">
                                         <span className="label-text">Seller Email</span>
                                     </label>
-                                    <input type="email" name='email' defaultValue={user?.email} placeholder="email" className="input input-bordered" required />
+                                    <input type="email" name='sellerEmail' defaultValue={user?.email} placeholder="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control lg:w-1/2">
                                     <label className="label">
@@ -95,26 +95,29 @@ const AddToy = () => {
                                 </div>
                                 <div className="form-control lg:w-1/2">
                                     <label className="label">
-                                        <span className="label-text">Ratting</span>
+                                        <span className="label-text">Rating</span>
                                     </label>
-                                    <input type="text" name='ratting' placeholder="ratting" className="input input-bordered" required />
+                                    <input type="text" name='rating' placeholder="rating" className="input input-bordered" required />
                                 </div>
                             </div>
-                                <label className="label">
-                                    <span className="label-text">Select sub_category</span>
-                                </label>
-                                <select className="input input-bordered" name="sub_category" id="">
-                                    <option value="">Choose sub_category</option>
-                                    <option value="Regular car">Regular car</option>
-                                    <option value="Track">Track</option>
-                                    <option value="Sports car">Sports car</option>
-                                    <option value="Mini police car">Mini police car</option>
-                                </select>
+                            <label className="label">
+                                <span className="label-text">Select sub_category</span>
+                            </label>
+                            <select className="input input-bordered" name="sub_category" id="">
+                                <option value="">Choose sub_category</option>
+                                <option value="Sports Cars">Sports Cars</option>
+                                <option value="Classic Cars">Classic Cars</option>
+                                <option value="Off-Road Trucks">Off-Road Trucks</option>
+                                <option value="Regular car">Regular car</option>
+                                <option value="Track">Track</option>
+                                <option value="Sports car">Sports car</option>
+                                <option value="Mini police car">Mini police car</option>
+                            </select>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Description</span>
                                 </label>
-                                <textarea name="details" cols="30" rows="3" placeholder='description' className="input input-bordered" required></textarea>
+                                <textarea name="description" cols="30" rows="3" placeholder='description' className="input input-bordered" required></textarea>
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Add A Toy" />
