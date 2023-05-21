@@ -6,8 +6,10 @@ import useTitle from '../../hooks/useTitle';
 
 const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
+    const [updateInfo, setUpdateInfo] = useState({})
     const { user } = useContext(AuthContext)
     useTitle('My Toys')
+    console.log(updateInfo)
 
     // if (data.modifiedCount > 0) {
     //     const remaining = bookings.filter(booking => booking._id !== id)
@@ -48,11 +50,11 @@ const MyToys = () => {
         })
     }
 
-    const handleUpdateToy = event => {
-        fetch(`http://localhost:5000/addToys/${myToys._id}`, {
+    const handleUpdateToy = id => {
+        fetch(`http://localhost:5000/addToys/${id}`, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
-            body: JSON.stringify(event)
+            body: JSON.stringify(updateInfo)
         })
             .then(res => res.json())
             .then(data => {
@@ -105,6 +107,7 @@ const MyToys = () => {
                                 toy={toy}
                                 handleDelete={handleDelete}
                                 handleUpdateToy={handleUpdateToy}
+                                setUpdateInfo={setUpdateInfo}
                             ></MyToysCard>)
                         }
                  

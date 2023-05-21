@@ -1,9 +1,15 @@
 import { HiXCircle } from "react-icons/hi";
 import useTitle from "../../hooks/useTitle";
 
-const MyToysCard = ({ toy, handleDelete, handleUpdateToy }) => {
+const MyToysCard = ({ toy, handleDelete, handleUpdateToy, setUpdateInfo }) => {
     const { _id, url, toyName, price, quantity, ratting, email } = toy;
     useTitle('My Toys')
+
+    const handleClick = (info) => {
+        setUpdateInfo(info)
+        handleUpdateToy(_id)
+        
+    }
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -17,7 +23,7 @@ const MyToysCard = ({ toy, handleDelete, handleUpdateToy }) => {
             details
         }
         console.log(toyInfo)
-        handleUpdateToy(toyInfo)
+        handleClick(toyInfo)
     }
 
 
