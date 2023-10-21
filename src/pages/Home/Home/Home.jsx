@@ -8,6 +8,7 @@ import useTitle from '../../../hooks/useTitle';
 import OurServices from '../OurServices/OurServices';
 import LatestUpdate from '../LatestUpdate/LatestUpdate';
 import Contact from '../Contact/Contact';
+import AddReview from '../AddReview/AddReview';
 
 const Home = () => {
     useTitle('Home')
@@ -16,6 +17,7 @@ const Home = () => {
             <Banner></Banner>
             <Gallery></Gallery>
             <TabCategory></TabCategory>
+            <AddReview></AddReview>
             <OurServices></OurServices>
             <LatestUpdate></LatestUpdate>
             <Slider></Slider>

@@ -7,7 +7,7 @@ import AuthProvider from './providers/AuthProvider'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div>
+    <div className='bg-slate-100'>
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
