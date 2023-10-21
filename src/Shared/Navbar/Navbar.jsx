@@ -22,12 +22,12 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ">
                         <li><ActiveLink to='/'>Home</ActiveLink></li>
+                        <li tabIndex={0}>
+                            <ActiveLink to='/allToys'>All Toys </ActiveLink>
+                        </li>
                         {
                             user &&
                             <>
-                                <li tabIndex={0}>
-                                    <ActiveLink to='/allToys'>All Toys </ActiveLink>
-                                </li>
                                 <li><ActiveLink to='/myToys'>My Toys</ActiveLink></li>
                                 <li><ActiveLink to='/addToy'>Add A Toy</ActiveLink></li>
                             </>
@@ -41,12 +41,12 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-xl gap-4">
                     <li><ActiveLink to='/'>Home</ActiveLink></li>
+                    <li tabIndex={0}>
+                        <ActiveLink className='ml-4 mr-4' to='/allToys'> All Toys </ActiveLink>
+                    </li>
                     {
                         user &&
                         <>
-                            <li tabIndex={0}>
-                                <ActiveLink className='ml-4 mr-4' to='/allToys'> All Toys </ActiveLink>
-                            </li>
                             <li><ActiveLink to='/myToys'>My Toys</ActiveLink></li>
                             <li><ActiveLink to='/addToy'>Add A Toy</ActiveLink></li>
                         </>

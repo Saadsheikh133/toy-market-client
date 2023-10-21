@@ -7,8 +7,7 @@ import useTitle from '../../hooks/useTitle';
 const MyToys = () => {
     const [myToys, setMyToys] = useState([]);
     const [updateInfo, setUpdateInfo] = useState({})
-    const [activeTab, setActiveTab] = useState('ascending')
-    const [category, setCategory] = useState([])
+    const [activeTab, setActiveTab] = useState('')
     const { user } = useContext(AuthContext)
     useTitle('My Toys')
 
@@ -25,7 +24,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/addToys/${_id}`, {
+                fetch(`http://localhost:5000/addToys/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -43,7 +42,7 @@ const MyToys = () => {
     }
 
     const handleUpdateToy = id => {
-        fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/addToys/${id}`, {
+        fetch(`http://localhost:5000/addToys/${id}`, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(updateInfo)
@@ -82,15 +81,15 @@ const MyToys = () => {
     }
 
     useEffect(() => {
-        fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/allToys/${category}`)
+        fetch(`http://localhost:5000/myToys/${activeTab}`)
             .then(res => res.json())
             .then(data => {
-            setCategory(data)
+            setMyToys(data)
         })
-    }, [category])
+    }, [activeTab])
 
 
-    const url = `https://b7a11-toy-marketplace-server-side-nine.vercel.app/allToys?email=${user?.email}`
+    const url = `http://localhost:5000/allToys?email=${user?.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -100,6 +99,12 @@ const MyToys = () => {
     }, [url])
     return (
         <div className="overflow-x-auto w-full">
+            <div className='flex justify-center my-10'>
+                <div className="tabs tabs-boxed">
+                    <a onClick={() => handleSorting('ascending')} className={`tab ${activeTab == 'ascending' ? 'tab-active' : ''}`}>ascending</a>
+                    <a onClick={() => handleSorting('descending')} className={`tab ${activeTab == 'descending' ? 'tab-active' : ''}`}>descending</a>
+                </div>
+            </div>
             <table className="table w-full">
                 {/* head */}
                 <thead>
@@ -130,12 +135,6 @@ const MyToys = () => {
 
                 </tbody>
             </table>
-            <div className='flex justify-center my-10'>
-                <div className="tabs tabs-boxed">
-                    <a onClick={() => handleSorting('ascending')} className={`tab ${activeTab == 'ascending' ? 'tab-active': ''}`}>ascending</a>
-                    <a onClick={() => handleSorting('descending')} className={`tab ${activeTab == 'descending' ? 'tab-active' : ''}`}>Descending</a>
-                </div>
-            </div>
         </div>
     );
 };
