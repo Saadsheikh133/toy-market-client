@@ -6,6 +6,8 @@ import TabCategory from '../TabCategory/TabCategory';
 import SingleCard from '../singleCard/SingleCard';
 import useTitle from '../../../hooks/useTitle';
 import OurServices from '../OurServices/OurServices';
+import LatestUpdate from '../LatestUpdate/LatestUpdate';
+import Contact from '../Contact/Contact';
 
 const Home = () => {
     useTitle('Home')
@@ -15,8 +17,10 @@ const Home = () => {
             <Gallery></Gallery>
             <TabCategory></TabCategory>
             <OurServices></OurServices>
+            <LatestUpdate></LatestUpdate>
             <Slider></Slider>
             <SingleCard></SingleCard>
+            <Contact></Contact>
         </div>
     );
 };

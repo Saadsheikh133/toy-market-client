@@ -27,7 +27,7 @@ const SingleCategory = ({ toy }) => {
 
 
     return (
-        <div className='my-10'>
+        <div>
             <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full w-full mx-auto pb-10">
                 <a href="#">
                     <img className="rounded-t-lg" src={img} alt="" />
