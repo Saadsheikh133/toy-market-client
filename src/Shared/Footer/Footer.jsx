@@ -2,9 +2,25 @@ import React from 'react';
 import logo from '../../assets/images/logo.jpg'
 import { ImFacebook, ImTwitter } from "react-icons/im";
 import useTitle from '../../hooks/useTitle';
+import Swal from 'sweetalert2';
 
 const Footer = () => {
-    useTitle('Footer')
+    useTitle('Footer');
+
+    const handleSubscribe = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        // const email = form.email.value;
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Thank you for subscription',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        form.reset();
+    }
+
     return (
         <footer className=''>
             <div className='bg-purple-950 py-10 rounded-t-xl px-10 text-white max-w-full lg:flex border-b'>
@@ -14,8 +30,8 @@ const Footer = () => {
                 </div>
                 <div className=' lg:w-1/2 md:flex gap-4 lg:mx-10'>
                     <h2 className='text-2xl font-bold'> Join Newsletter </h2>
-                    <form className='w-full relative mt-4 lg:mt-0'>
-                        <input className='bg-purple-800 w-full lg:w-4/5 py-6 px-10 rounded-full' type="email" name="" id="" placeholder='Your email' />
+                    <form required onSubmit={handleSubscribe} className='w-full relative mt-4 lg:mt-0'>
+                        <input className='bg-purple-800 w-full lg:w-4/5 py-6 px-10 rounded-full' type="email" required name="" id="" placeholder='Your email' />
                         <input className='text-xl py-5 px-10 bg-purple-900 rounded-full absolute top-0 right-0 lg:right-32 font-bold' type="submit" />
                     </form>
                 </div>
