@@ -2,7 +2,7 @@ import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import "swiper/css/pagination";
-import { FreeMode, Pagination } from "swiper";
+import { FreeMode, Pagination } from 'swiper/modules';
 import slider1 from '../../../assets/images/slider-1.jpg'
 import slider2 from '../../../assets/images/slider-2.jpg'
 import slider3 from '../../../assets/images/slider-3.jpg'

@@ -9,6 +9,7 @@ import OurServices from '../OurServices/OurServices';
 import LatestUpdate from '../LatestUpdate/LatestUpdate';
 import Contact from '../Contact/Contact';
 import AddReview from '../AddReview/AddReview';
+import ShowReview from '../ShowReview/ShowReview';
 
 const Home = () => {
     useTitle('Home')
@@ -18,6 +19,7 @@ const Home = () => {
             <Gallery></Gallery>
             <TabCategory></TabCategory>
             <AddReview></AddReview>
+            <ShowReview></ShowReview>
             <OurServices></OurServices>
             <LatestUpdate></LatestUpdate>
             <Slider></Slider>
