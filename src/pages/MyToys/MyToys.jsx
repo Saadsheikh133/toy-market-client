@@ -24,7 +24,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addToys/${_id}`, {
+                fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/addToys/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -42,7 +42,7 @@ const MyToys = () => {
     }
 
     const handleUpdateToy = id => {
-        fetch(`http://localhost:5000/addToys/${id}`, {
+        fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/addToys/${id}`, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(updateInfo)
@@ -81,7 +81,7 @@ const MyToys = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${activeTab}`)
+        fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/myToys/${activeTab}`)
             .then(res => res.json())
             .then(data => {
             setMyToys(data)
@@ -89,7 +89,7 @@ const MyToys = () => {
     }, [activeTab])
 
 
-    const url = `http://localhost:5000/allToys?email=${user?.email}`
+    const url = `https://b7a11-toy-marketplace-server-side-nine.vercel.app/allToys?email=${user?.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

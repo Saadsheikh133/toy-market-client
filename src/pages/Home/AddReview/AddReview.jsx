@@ -12,7 +12,7 @@ const AddReview = () => {
         const review = form.review.value;
         const formInfo = {name, product, rating, review}
         console.log(formInfo)
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://b7a11-toy-marketplace-server-side-nine.vercel.app/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

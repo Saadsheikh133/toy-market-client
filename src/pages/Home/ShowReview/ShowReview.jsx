@@ -14,7 +14,7 @@ const ShowReview = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://b7a11-toy-marketplace-server-side-nine.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data));
     }, [])
@@ -29,7 +29,6 @@ const ShowReview = () => {
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
-                loop={true}
                 breakpoints={{
                     640: {
                         slidesPerView: 1,

@@ -8,7 +8,7 @@ const ToyDetails = () => {
     const { sellerName, price, rating, quantity, description, img, toyName, sub_category, sellerEmail } = toyInfo;
 
     useEffect(() => { 
-        fetch(`http://localhost:5000/allToys/${id}`)
+        fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/allToys/${id}`)
             .then(res => res.json())
             .then(data => {
                 setToyInfo(data)
@@ -17,7 +17,7 @@ const ToyDetails = () => {
 
 
     useEffect(() => { 
-        fetch(`http://localhost:5000/toys/${id}`)
+        fetch(`https://b7a11-toy-marketplace-server-side-nine.vercel.app/toys/${id}`)
             .then(res => res.json())
             .then(data => {
                 setToyInfo(data)
